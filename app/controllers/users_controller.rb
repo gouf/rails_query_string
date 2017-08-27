@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def queries
+    # * [ActionDispatch::Request](http://api.rubyonrails.org/classes/ActionDispatch/Request.html#method-i-query_parameters)
+    # * [routing - How do I get only the query string in a Rails route? - Stack Overflow](https://stackoverflow.com/questions/4116545/how-do-i-get-only-the-query-string-in-a-rails-route)
+    @queries = request.query_parameters
+  end
+
   # GET /users
   # GET /users.json
   def index
